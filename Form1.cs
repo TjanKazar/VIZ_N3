@@ -30,7 +30,6 @@ namespace VIZ_N3
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
-            openFileDialog1.Filter = "All Files (*.*)|*.*";
             openFileDialog1.FilterIndex = 1;
             openFileDialog1.Multiselect = false;
             DialogResult userClickedOK = openFileDialog1.ShowDialog();
@@ -69,17 +68,15 @@ namespace VIZ_N3
         private void save_file_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-            saveFileDialog1.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
             saveFileDialog1.FilterIndex = 1;
-            saveFileDialog1.FileName = $"test.txt";
+            saveFileDialog1.FileName = $"testtest123{fileType}";
 
             DialogResult userClickedOK = saveFileDialog1.ShowDialog();
             if (userClickedOK == DialogResult.OK)
             {
                 string filePath = saveFileDialog1.FileName;
-                string fileBytesString = Encoding.UTF8.GetString(fileBytes);
 
-                File.WriteAllText(filePath, fileBytesString);
+                File.WriteAllBytes(filePath, fileBytes);
                 MessageBox.Show("File saved successfully.");
             }
         }

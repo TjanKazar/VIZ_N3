@@ -35,6 +35,9 @@
             comboBox1 = new ComboBox();
             save_iv = new Button();
             save_encrypt_file = new Button();
+            label1 = new Label();
+            encryption_box = new ComboBox();
+            label2 = new Label();
             SuspendLayout();
             // 
             // save_Derypt_file
@@ -60,7 +63,7 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(899, 137);
+            comboBox1.Location = new Point(925, 256);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(121, 23);
             comboBox1.TabIndex = 3;
@@ -84,12 +87,42 @@
             save_encrypt_file.TabIndex = 5;
             save_encrypt_file.Text = "Save Encrypted File As Text File";
             save_encrypt_file.UseVisualStyleBackColor = true;
+            save_encrypt_file.Click += save_encrypt_file_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(945, 238);
+            label1.Name = "label1";
+            label1.Size = new Size(84, 15);
+            label1.TabIndex = 6;
+            label1.Text = "Select key size:";
+            // 
+            // encryption_box
+            // 
+            encryption_box.FormattingEnabled = true;
+            encryption_box.Location = new Point(925, 181);
+            encryption_box.Name = "encryption_box";
+            encryption_box.Size = new Size(121, 23);
+            encryption_box.TabIndex = 7;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(925, 163);
+            label2.Name = "label2";
+            label2.Size = new Size(127, 15);
+            label2.TabIndex = 8;
+            label2.Text = "Select enctyption type:";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1164, 634);
+            Controls.Add(label2);
+            Controls.Add(encryption_box);
+            Controls.Add(label1);
             Controls.Add(save_encrypt_file);
             Controls.Add(save_iv);
             Controls.Add(comboBox1);
@@ -98,6 +131,7 @@
             Name = "Form1";
             Text = "FIle Enctyption";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -109,5 +143,8 @@
         private ComboBox comboBox1;
         private Button save_iv;
         private Button save_encrypt_file;
+        private Label label1;
+        private ComboBox encryption_box;
+        private Label label2;
     }
 }

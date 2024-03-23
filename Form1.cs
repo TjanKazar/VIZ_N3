@@ -1,31 +1,83 @@
+using System;
 using System.Diagnostics;
 using System.Security.Cryptography;
 using System.Text;
+using System.Windows.Forms;
 
 namespace VIZ_N3
 {
     public partial class Form1 : Form
     {
+        public int keysize;
+        public byte[] fileBytes;
+        public byte[] aesBytes;
+        public string fileType;
+        public byte[] aesKey;
+        public byte[] iv;
+        public byte[] decrypted;
+
+
         public Form1()
         {
             InitializeComponent();
-            comboBox1.Items.Add(128);
-            comboBox1.Items.Add(192);
-            comboBox1.Items.Add(256);
-            comboBox1.Items.Add(1024);
-            comboBox1.Items.Add(2048);
+            comboBox1.Items.Add("key size:");
+            comboBox1.Items.Add("128 bytes");
+            comboBox1.Items.Add("192 bytes");
+            comboBox1.Items.Add("256 bytes");
+            comboBox1.Items.Add("1024 bytes");
+            comboBox1.Items.Add("2048 bytes");
+
+            encryption_box.Items.Add("AES");
+            encryption_box.Items.Add("RSA");
+            save_Derypt_file.Enabled = false;
+
         }
-        public int keysize;
-        public byte[] fileBytes;
-        public string fileType;
-        byte[] iv = Encoding.UTF8.GetBytes("Hello wrld");
 
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            keysize = (int)comboBox1.SelectedItem;
-        }
+            if (comboBox1.SelectedItem == "128 bytes")
+            {
+                if (encryption_box.SelectedItem == "RSA")
+                    comboBox1.SelectedItem = "key size:";
+                else
+                    keysize = 128;
+            }
+            else if (comboBox1.SelectedItem == "192 bytes")
+            {
+                if (encryption_box.SelectedItem == "RSA")
+                    comboBox1.SelectedItem = "key size:";
+                else
+                    keysize = 192;
+            }
+            else if (comboBox1.SelectedItem == "256 bytes")
+            {
+                if (encryption_box.SelectedItem == "RSA")
+                    comboBox1.SelectedItem = "key size:";
+                else
+                    keysize = 256;
 
+            }
+            else if (comboBox1.SelectedItem == "1024 bytes")
+            {
+                if (encryption_box.SelectedItem == "AES")
+                    comboBox1.SelectedItem = "key size:";
+                else
+                    keysize = 1024;
+
+            }
+            else if (comboBox1.SelectedItem == "2048 bytes")
+            {
+                if (encryption_box.SelectedItem == "AES")
+                    comboBox1.SelectedItem = "key size:";
+                else
+                    keysize = 2048;
+            }
+            if (comboBox1.SelectedItem == "key size:")
+                save_Derypt_file.Enabled = false;
+            else
+                save_Derypt_file.Enabled = true;
+        }
         private void browse_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
@@ -34,18 +86,25 @@ namespace VIZ_N3
             openFileDialog1.Multiselect = false;
             DialogResult userClickedOK = openFileDialog1.ShowDialog();
 
+
             if (userClickedOK == DialogResult.OK)
             {
                 string filePath = openFileDialog1.FileName;
                 fileBytes = File.ReadAllBytes(filePath);
                 string fileString = Encoding.UTF8.GetString(fileBytes);
                 Console.WriteLine(filePath);
-                fileType = FileTypeFromPath(filePath);
+                fileType = viz3.FileTypeFromPath(filePath);
                 Console.WriteLine(fileType);
-
             }
-        }
+           
+            aesBytes = viz3.EncryptAes(fileBytes, out aesKey,out iv, keysize);
+            foreach (byte b in aesKey)
+            {
+                Console.WriteLine(b);
+            }
+            
 
+        }
         private void save_iv_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
@@ -58,13 +117,11 @@ namespace VIZ_N3
             if (userClickedOK == DialogResult.OK)
             {
                 string filePath = saveFileDialog1.FileName;
-                string ivString = Encoding.UTF8.GetString(iv);
 
-                File.WriteAllText(filePath, ivString);
+                File.WriteAllBytes(filePath, iv);
                 MessageBox.Show("File saved successfully.");
             }
         }
-
         private void save_file_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
@@ -75,76 +132,29 @@ namespace VIZ_N3
             if (userClickedOK == DialogResult.OK)
             {
                 string filePath = saveFileDialog1.FileName;
+                decrypted = viz3.DecryptAes(aesBytes, aesKey, iv, keysize);
 
-                File.WriteAllBytes(filePath, fileBytes);
+                int fileSize = decrypted.Length;
+                byte[] noPadding = viz3.AdjustByteArraySize(decrypted, fileSize);
+
+                File.WriteAllBytes(filePath, decrypted);
                 MessageBox.Show("File saved successfully.");
             }
         }
-
-        public static byte[] InicializaciskiVektor()
+        private void save_encrypt_file_Click(object sender, EventArgs e)
         {
-            using (RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider())
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.FilterIndex = 1;
+            saveFileDialog1.FileName = $"testtest123.txt";
+
+            DialogResult userClickedOK = saveFileDialog1.ShowDialog();
+            if (userClickedOK == DialogResult.OK)
             {
-                byte[] iv = new byte[16];
-                rng.GetBytes(iv);
-                Debug.WriteLine(Convert.ToBase64String(iv));
-                return iv;
-            }
-        }
-        public byte[] EncryptAes(byte[] data, byte[] key, byte[] iv, int keySize)
-        {
-            using (var aes = Aes.Create())
-            {
-                aes.Key = key;
-                aes.IV = iv;
-                aes.KeySize = keySize;
-                aes.Padding = PaddingMode.Zeros;
-                aes.BlockSize = keySize;
+                string filePath = saveFileDialog1.FileName;
 
-                ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
-
-                using MemoryStream msEncrypt = new MemoryStream();
-                using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
-                {
-                    csEncrypt.Write(data, 0, data.Length);
-                    csEncrypt.FlushFinalBlock();
-                }
-                return msEncrypt.ToArray();
-            }
-        }
-        public string FileTypeFromPath(string filePath)
-        {
-            int extentionIndex = filePath.LastIndexOf('.');
-            if (extentionIndex != -1)
-            {
-                string result = filePath.Substring(extentionIndex);
-                return result;
-            }
-            else
-            {
-                return ".idk";
-            }
-        }
-
-        public byte[] DecryptAes(byte[] encryptedData, byte[] sharedSecret, byte[] userIV)
-        {
-            using (AesManaged aesAlg = new AesManaged())
-            {
-                aesAlg.Key = sharedSecret;
-                aesAlg.IV = userIV;
-
-                ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
-
-                using (MemoryStream msDecrypt = new MemoryStream(encryptedData))
-                using (CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
-                using (MemoryStream decryptedStream = new MemoryStream())
-                {
-                    csDecrypt.CopyTo(decryptedStream);
-
-                    return decryptedStream.ToArray();
-                }
+                File.WriteAllBytes(filePath, aesBytes);
+                MessageBox.Show("File saved successfully.");
             }
         }
     }
 }
-

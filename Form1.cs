@@ -114,7 +114,7 @@ namespace VIZ_N3
 
             saveFileDialog1.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
             saveFileDialog1.FilterIndex = 1;
-            saveFileDialog1.FileName = "test.txt";
+            saveFileDialog1.FileName = "testIV";
 
             DialogResult userClickedOK = saveFileDialog1.ShowDialog();
             if (userClickedOK == DialogResult.OK)
@@ -122,7 +122,7 @@ namespace VIZ_N3
                 string filePath = saveFileDialog1.FileName;
 
                 File.WriteAllBytes(filePath, iv);
-                MessageBox.Show("File saved successfully.");
+                MessageBox.Show("IV saved successfully.");
             }
         }
         private void save_file_Click(object sender, EventArgs e)
@@ -174,7 +174,7 @@ namespace VIZ_N3
         {
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             saveFileDialog1.FilterIndex = 1;
-            saveFileDialog1.FileName = $"decrypt_key.txt";
+            saveFileDialog1.FileName = $"decrypt_key";
 
             DialogResult userClickedOK = saveFileDialog1.ShowDialog();
             if (userClickedOK == DialogResult.OK)
@@ -253,7 +253,7 @@ namespace VIZ_N3
         {
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             saveFileDialog1.FilterIndex = 1;
-            saveFileDialog1.FileName = $"public_key_rsa.txt";
+            saveFileDialog1.FileName = $"public_key_rsa";
 
             DialogResult userClickedOK = saveFileDialog1.ShowDialog();
             if (userClickedOK == DialogResult.OK)
@@ -269,7 +269,7 @@ namespace VIZ_N3
         {
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             saveFileDialog1.FilterIndex = 1;
-            saveFileDialog1.FileName = $"public_key_rsa.txt";
+            saveFileDialog1.FileName = $"private_key_rsa";
 
             DialogResult userClickedOK = saveFileDialog1.ShowDialog();
             if (userClickedOK == DialogResult.OK)

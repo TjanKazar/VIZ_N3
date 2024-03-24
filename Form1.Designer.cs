@@ -57,8 +57,8 @@
             // save_Derypt_file
             // 
             save_Derypt_file.BackColor = SystemColors.MenuHighlight;
-            save_Derypt_file.ForeColor = SystemColors.Window;
-            save_Derypt_file.Location = new Point(610, 18);
+            save_Derypt_file.ForeColor = SystemColors.InactiveBorder;
+            save_Derypt_file.Location = new Point(601, 18);
             save_Derypt_file.Name = "save_Derypt_file";
             save_Derypt_file.Size = new Size(112, 45);
             save_Derypt_file.TabIndex = 1;
@@ -102,9 +102,9 @@
             // 
             save_encrypt_file.BackColor = SystemColors.MenuHighlight;
             save_encrypt_file.ForeColor = SystemColors.Window;
-            save_encrypt_file.Location = new Point(728, 18);
+            save_encrypt_file.Location = new Point(719, 18);
             save_encrypt_file.Name = "save_encrypt_file";
-            save_encrypt_file.Size = new Size(138, 45);
+            save_encrypt_file.Size = new Size(147, 45);
             save_encrypt_file.TabIndex = 5;
             save_encrypt_file.Text = "Save AES Encrypted File As Text File";
             save_encrypt_file.UseVisualStyleBackColor = false;
@@ -253,7 +253,7 @@
             save_rsa_key.ForeColor = SystemColors.Window;
             save_rsa_key.Location = new Point(857, 336);
             save_rsa_key.Name = "save_rsa_key";
-            save_rsa_key.Size = new Size(122, 45);
+            save_rsa_key.Size = new Size(130, 45);
             save_rsa_key.TabIndex = 19;
             save_rsa_key.Text = "Save RSA Public Key";
             save_rsa_key.UseVisualStyleBackColor = false;

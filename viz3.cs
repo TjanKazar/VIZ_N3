@@ -39,7 +39,6 @@ namespace VIZ_N3
                 }
             }
         }
-
         public static byte[] DecryptAes(byte[] encryptedData, byte[] key, byte[] iv, int keySize)
         {
             using (var aes = Aes.Create())
@@ -65,8 +64,6 @@ namespace VIZ_N3
                 }
             }
         }
-
-
         public static string FileTypeFromPath(string filePath)
         {
             int extentionIndex = filePath.LastIndexOf('.');
@@ -80,19 +77,31 @@ namespace VIZ_N3
                 return ".idk";
             }
         }
-        public static byte[] AdjustByteArraySize(byte[] decrypted, int fileSize)
+        public static byte[] EncryptRSA(byte[] data, string publicKey, int keySize)
         {
-            if (decrypted.Length <= fileSize)
+            using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider())
             {
-                return decrypted;
+                rsa.KeySize = keySize;
+                rsa.FromXmlString(publicKey);
+                return rsa.Encrypt(data, false);
             }
-            else
+        }
+        public static byte[] DecryptRSA(byte[] data, string privateKey, int keySize)
+        {
+            using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider())
             {
-                int bytesToRemove = decrypted.Length - fileSize;
-                byte[] adjustedDecrypted = new byte[fileSize];
-                Array.Copy(decrypted, bytesToRemove, adjustedDecrypted, 0, adjustedDecrypted.Length);
-                return adjustedDecrypted;
+                rsa.KeySize = keySize;
+                rsa.FromXmlString(privateKey);
+                return rsa.Decrypt(data, false);
             }
+        }
+        public static void RSAGetKeys(out string publickey , out string privatekey, int keySize)
+        {
+            using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(keySize))
+            {
+                publickey = rsa.ToXmlString(false);
+                privatekey = rsa.ToXmlString(true);
+            } 
         }
     }
 }

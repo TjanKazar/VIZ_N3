@@ -50,6 +50,8 @@
             button2 = new Button();
             save_rsa_key = new Button();
             button3 = new Button();
+            Rsa_change_pub_key = new Button();
+            Rsa_change_priv_key = new Button();
             SuspendLayout();
             // 
             // save_Derypt_file
@@ -245,11 +247,33 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
+            // Rsa_change_pub_key
+            // 
+            Rsa_change_pub_key.Location = new Point(12, 455);
+            Rsa_change_pub_key.Name = "Rsa_change_pub_key";
+            Rsa_change_pub_key.Size = new Size(100, 38);
+            Rsa_change_pub_key.TabIndex = 21;
+            Rsa_change_pub_key.Text = "Set Public Key";
+            Rsa_change_pub_key.UseVisualStyleBackColor = true;
+            Rsa_change_pub_key.Click += Rsa_change_pub_key_Click;
+            // 
+            // Rsa_change_priv_key
+            // 
+            Rsa_change_priv_key.Location = new Point(12, 499);
+            Rsa_change_priv_key.Name = "Rsa_change_priv_key";
+            Rsa_change_priv_key.Size = new Size(100, 38);
+            Rsa_change_priv_key.TabIndex = 22;
+            Rsa_change_priv_key.Text = "Set Private Key";
+            Rsa_change_priv_key.UseVisualStyleBackColor = true;
+            Rsa_change_priv_key.Click += Rsa_change_priv_key_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1164, 634);
+            Controls.Add(Rsa_change_priv_key);
+            Controls.Add(Rsa_change_pub_key);
             Controls.Add(button3);
             Controls.Add(save_rsa_key);
             Controls.Add(button2);
@@ -300,5 +324,7 @@
         private Button button2;
         private Button save_rsa_key;
         private Button button3;
+        private Button Rsa_change_pub_key;
+        private Button Rsa_change_priv_key;
     }
 }

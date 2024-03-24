@@ -281,6 +281,36 @@ namespace VIZ_N3
             }
         }
 
+        private void Rsa_change_pub_key_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            openFileDialog1.FilterIndex = 1;
+            openFileDialog1.Multiselect = false;
+            DialogResult userClickedOK = openFileDialog1.ShowDialog();
+            if (userClickedOK == DialogResult.OK)
+            {
+                string filePath = openFileDialog1.FileName;
+                byte[] RSAPublicKeybytes = File.ReadAllBytes(filePath);
+                RSAPublicKey = Encoding.UTF8.GetString(RSAPublicKeybytes);
+            }
+        }
+
+        private void Rsa_change_priv_key_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            openFileDialog1.FilterIndex = 1;
+            openFileDialog1.Multiselect = false;
+            DialogResult userClickedOK = openFileDialog1.ShowDialog();
+            if (userClickedOK == DialogResult.OK)
+            {
+                string filePath = openFileDialog1.FileName;
+                byte[] RSAPublicKeybytes = File.ReadAllBytes(filePath);
+                RSAPrivateKey = Encoding.UTF8.GetString(RSAPublicKeybytes);
+            }
+        }
+
         // RSA part naloge
 
 

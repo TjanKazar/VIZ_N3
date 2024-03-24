@@ -69,7 +69,7 @@
             // browse
             // 
             browse.BackColor = SystemColors.Info;
-            browse.Location = new Point(12, 75);
+            browse.Location = new Point(12, 92);
             browse.Name = "browse";
             browse.Size = new Size(100, 51);
             browse.TabIndex = 2;
@@ -139,7 +139,7 @@
             // browse_decrypt
             // 
             browse_decrypt.BackColor = SystemColors.Info;
-            browse_decrypt.Location = new Point(12, 132);
+            browse_decrypt.Location = new Point(12, 165);
             browse_decrypt.Name = "browse_decrypt";
             browse_decrypt.Size = new Size(100, 51);
             browse_decrypt.TabIndex = 9;
@@ -150,7 +150,7 @@
             // decrypt_key
             // 
             decrypt_key.BackColor = SystemColors.Info;
-            decrypt_key.Location = new Point(12, 189);
+            decrypt_key.Location = new Point(12, 237);
             decrypt_key.Name = "decrypt_key";
             decrypt_key.Size = new Size(100, 51);
             decrypt_key.TabIndex = 10;
@@ -173,7 +173,7 @@
             label4.BackColor = SystemColors.GrayText;
             label4.Font = new Font("Segoe UI", 35F);
             label4.ForeColor = SystemColors.InactiveCaptionText;
-            label4.Location = new Point(118, 1);
+            label4.Location = new Point(2, 1);
             label4.Name = "label4";
             label4.Size = new Size(341, 62);
             label4.TabIndex = 12;
@@ -185,7 +185,7 @@
             label5.BackColor = SystemColors.InactiveCaptionText;
             label5.Font = new Font("Segoe UI", 35F);
             label5.ForeColor = SystemColors.GrayText;
-            label5.Location = new Point(118, 312);
+            label5.Location = new Point(12, 311);
             label5.Name = "label5";
             label5.Size = new Size(345, 62);
             label5.TabIndex = 13;
@@ -206,7 +206,7 @@
             // browseRSA
             // 
             browseRSA.BackColor = SystemColors.Info;
-            browseRSA.Location = new Point(12, 398);
+            browseRSA.Location = new Point(12, 411);
             browseRSA.Name = "browseRSA";
             browseRSA.Size = new Size(100, 51);
             browseRSA.TabIndex = 15;
@@ -274,7 +274,7 @@
             // Rsa_change_pub_key
             // 
             Rsa_change_pub_key.BackColor = SystemColors.Info;
-            Rsa_change_pub_key.Location = new Point(12, 455);
+            Rsa_change_pub_key.Location = new Point(12, 482);
             Rsa_change_pub_key.Name = "Rsa_change_pub_key";
             Rsa_change_pub_key.Size = new Size(100, 38);
             Rsa_change_pub_key.TabIndex = 21;
@@ -285,7 +285,7 @@
             // Rsa_change_priv_key
             // 
             Rsa_change_priv_key.BackColor = SystemColors.Info;
-            Rsa_change_priv_key.Location = new Point(12, 499);
+            Rsa_change_priv_key.Location = new Point(12, 542);
             Rsa_change_priv_key.Name = "Rsa_change_priv_key";
             Rsa_change_priv_key.Size = new Size(100, 38);
             Rsa_change_priv_key.TabIndex = 22;

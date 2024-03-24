@@ -56,22 +56,25 @@
             // 
             // save_Derypt_file
             // 
+            save_Derypt_file.BackColor = SystemColors.MenuHighlight;
+            save_Derypt_file.ForeColor = SystemColors.Window;
             save_Derypt_file.Location = new Point(610, 18);
             save_Derypt_file.Name = "save_Derypt_file";
             save_Derypt_file.Size = new Size(112, 45);
             save_Derypt_file.TabIndex = 1;
             save_Derypt_file.Text = "Save AES Decrypted File";
-            save_Derypt_file.UseVisualStyleBackColor = true;
+            save_Derypt_file.UseVisualStyleBackColor = false;
             save_Derypt_file.Click += save_file_Click;
             // 
             // browse
             // 
+            browse.BackColor = SystemColors.Info;
             browse.Location = new Point(12, 75);
             browse.Name = "browse";
             browse.Size = new Size(100, 51);
             browse.TabIndex = 2;
             browse.Text = "Browse file to Encrypt";
-            browse.UseVisualStyleBackColor = true;
+            browse.UseVisualStyleBackColor = false;
             browse.Click += browse_Click;
             // 
             // comboBox1
@@ -85,22 +88,26 @@
             // 
             // save_iv
             // 
+            save_iv.BackColor = SystemColors.MenuHighlight;
+            save_iv.ForeColor = SystemColors.Window;
             save_iv.Location = new Point(872, 18);
             save_iv.Name = "save_iv";
             save_iv.Size = new Size(75, 45);
             save_iv.TabIndex = 4;
             save_iv.Text = "Save IV";
-            save_iv.UseVisualStyleBackColor = true;
+            save_iv.UseVisualStyleBackColor = false;
             save_iv.Click += save_iv_Click;
             // 
             // save_encrypt_file
             // 
+            save_encrypt_file.BackColor = SystemColors.MenuHighlight;
+            save_encrypt_file.ForeColor = SystemColors.Window;
             save_encrypt_file.Location = new Point(728, 18);
             save_encrypt_file.Name = "save_encrypt_file";
             save_encrypt_file.Size = new Size(138, 45);
             save_encrypt_file.TabIndex = 5;
             save_encrypt_file.Text = "Save AES Encrypted File As Text File";
-            save_encrypt_file.UseVisualStyleBackColor = true;
+            save_encrypt_file.UseVisualStyleBackColor = false;
             save_encrypt_file.Click += save_encrypt_file_Click;
             // 
             // label1
@@ -131,22 +138,24 @@
             // 
             // browse_decrypt
             // 
+            browse_decrypt.BackColor = SystemColors.Info;
             browse_decrypt.Location = new Point(12, 132);
             browse_decrypt.Name = "browse_decrypt";
             browse_decrypt.Size = new Size(100, 51);
             browse_decrypt.TabIndex = 9;
             browse_decrypt.Text = "Browse file to Decrypt";
-            browse_decrypt.UseVisualStyleBackColor = true;
+            browse_decrypt.UseVisualStyleBackColor = false;
             browse_decrypt.Click += browse_decrypt_Click;
             // 
             // decrypt_key
             // 
+            decrypt_key.BackColor = SystemColors.Info;
             decrypt_key.Location = new Point(12, 189);
             decrypt_key.Name = "decrypt_key";
             decrypt_key.Size = new Size(100, 51);
             decrypt_key.TabIndex = 10;
             decrypt_key.Text = "Enter Decryption key";
-            decrypt_key.UseVisualStyleBackColor = true;
+            decrypt_key.UseVisualStyleBackColor = false;
             decrypt_key.Click += decrypt_key_Click;
             // 
             // label3
@@ -161,7 +170,9 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.BackColor = SystemColors.GrayText;
             label4.Font = new Font("Segoe UI", 35F);
+            label4.ForeColor = SystemColors.InactiveCaptionText;
             label4.Location = new Point(118, 1);
             label4.Name = "label4";
             label4.Size = new Size(341, 62);
@@ -171,7 +182,9 @@
             // label5
             // 
             label5.AutoSize = true;
+            label5.BackColor = SystemColors.InactiveCaptionText;
             label5.Font = new Font("Segoe UI", 35F);
+            label5.ForeColor = SystemColors.GrayText;
             label5.Location = new Point(118, 312);
             label5.Name = "label5";
             label5.Size = new Size(345, 62);
@@ -180,42 +193,49 @@
             // 
             // button1
             // 
+            button1.BackColor = SystemColors.MenuHighlight;
+            button1.ForeColor = SystemColors.Window;
             button1.Location = new Point(953, 21);
             button1.Name = "button1";
             button1.Size = new Size(100, 42);
             button1.TabIndex = 14;
             button1.Text = "Save Encryption key";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // browseRSA
             // 
+            browseRSA.BackColor = SystemColors.Info;
             browseRSA.Location = new Point(12, 398);
             browseRSA.Name = "browseRSA";
             browseRSA.Size = new Size(100, 51);
             browseRSA.TabIndex = 15;
             browseRSA.Text = "Browse file to encrypt";
-            browseRSA.UseVisualStyleBackColor = true;
+            browseRSA.UseVisualStyleBackColor = false;
             browseRSA.Click += browseRSA_Click;
             // 
             // saveRSA_Decrypted
             // 
+            saveRSA_Decrypted.BackColor = SystemColors.MenuHighlight;
+            saveRSA_Decrypted.ForeColor = SystemColors.Window;
             saveRSA_Decrypted.Location = new Point(469, 336);
             saveRSA_Decrypted.Name = "saveRSA_Decrypted";
             saveRSA_Decrypted.Size = new Size(112, 45);
             saveRSA_Decrypted.TabIndex = 16;
             saveRSA_Decrypted.Text = "Save RSA Decrypted File";
-            saveRSA_Decrypted.UseVisualStyleBackColor = true;
+            saveRSA_Decrypted.UseVisualStyleBackColor = false;
             saveRSA_Decrypted.Click += saveRSA_Decrypted_Click;
             // 
             // saveRSA_Encrypted
             // 
+            saveRSA_Encrypted.BackColor = SystemColors.MenuHighlight;
+            saveRSA_Encrypted.ForeColor = SystemColors.Window;
             saveRSA_Encrypted.Location = new Point(587, 336);
             saveRSA_Encrypted.Name = "saveRSA_Encrypted";
             saveRSA_Encrypted.Size = new Size(138, 45);
             saveRSA_Encrypted.TabIndex = 17;
             saveRSA_Encrypted.Text = "Save RSA Encrypted File";
-            saveRSA_Encrypted.UseVisualStyleBackColor = true;
+            saveRSA_Encrypted.UseVisualStyleBackColor = false;
             saveRSA_Encrypted.Click += saveRSA_Encrypted_Click;
             // 
             // button2
@@ -229,42 +249,48 @@
             // 
             // save_rsa_key
             // 
+            save_rsa_key.BackColor = SystemColors.MenuHighlight;
+            save_rsa_key.ForeColor = SystemColors.Window;
             save_rsa_key.Location = new Point(857, 336);
             save_rsa_key.Name = "save_rsa_key";
             save_rsa_key.Size = new Size(122, 45);
             save_rsa_key.TabIndex = 19;
             save_rsa_key.Text = "Save RSA Public Key";
-            save_rsa_key.UseVisualStyleBackColor = true;
+            save_rsa_key.UseVisualStyleBackColor = false;
             save_rsa_key.Click += save_rsa_key_Click;
             // 
             // button3
             // 
+            button3.BackColor = SystemColors.MenuHighlight;
+            button3.ForeColor = SystemColors.Window;
             button3.Location = new Point(730, 336);
             button3.Name = "button3";
             button3.Size = new Size(121, 45);
             button3.TabIndex = 20;
             button3.Text = "Save RSA Private Key";
-            button3.UseVisualStyleBackColor = true;
+            button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
             // Rsa_change_pub_key
             // 
+            Rsa_change_pub_key.BackColor = SystemColors.Info;
             Rsa_change_pub_key.Location = new Point(12, 455);
             Rsa_change_pub_key.Name = "Rsa_change_pub_key";
             Rsa_change_pub_key.Size = new Size(100, 38);
             Rsa_change_pub_key.TabIndex = 21;
             Rsa_change_pub_key.Text = "Set Public Key";
-            Rsa_change_pub_key.UseVisualStyleBackColor = true;
+            Rsa_change_pub_key.UseVisualStyleBackColor = false;
             Rsa_change_pub_key.Click += Rsa_change_pub_key_Click;
             // 
             // Rsa_change_priv_key
             // 
+            Rsa_change_priv_key.BackColor = SystemColors.Info;
             Rsa_change_priv_key.Location = new Point(12, 499);
             Rsa_change_priv_key.Name = "Rsa_change_priv_key";
             Rsa_change_priv_key.Size = new Size(100, 38);
             Rsa_change_priv_key.TabIndex = 22;
             Rsa_change_priv_key.Text = "Set Private Key";
-            Rsa_change_priv_key.UseVisualStyleBackColor = true;
+            Rsa_change_priv_key.UseVisualStyleBackColor = false;
             Rsa_change_priv_key.Click += Rsa_change_priv_key_Click;
             // 
             // Form1
